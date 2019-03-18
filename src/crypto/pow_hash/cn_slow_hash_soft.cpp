@@ -439,7 +439,7 @@ void cn_slow_hash<MEMORY, ITER, VERSION>::explode_scratchpad_soft()
 inline void generate_512(uint64_t idx, const uint64_t* in, uint8_t* out)
 {
 	constexpr size_t hash_size = 200; // 25x8 bytes
-	alignas(8) uint64_t hash[25];
+	alignas(16) uint64_t hash[25];
 
 	memcpy(hash, in, hash_size);
 	hash[0] ^= idx;
